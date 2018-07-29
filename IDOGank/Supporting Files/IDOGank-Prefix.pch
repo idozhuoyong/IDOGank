@@ -1,0 +1,44 @@
+//
+//  IDOGank-Prefix.pch
+//  IDOGank
+//
+//  Created by  hrxj_csii_ios on 2018/7/6.
+//  Copyright © 2018年 激情工作室. All rights reserved.
+//
+#ifdef __OBJC__
+#ifndef IDOGank_Prefix_pch
+#define IDOGank_Prefix_pch
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "NSObject+IDONSObject.h"
+#import "NSObject+IDOExtension.h"
+#import "NSString+IDONSString.h"
+#import "NSArray+IDONSArray.h"
+#import "NSURL+IDONSURL.h"
+#import "UIView+IDOUIView.h"
+#import "UIImage+IDOUIImage.h"
+#import "UIColor+IDOUIColor.h"
+
+#import <BlocksKit.h>
+#import <BlocksKit+UIKit.h>
+#import <BlocksKit+MessageUI.h>
+#import <Masonry.h>
+#import <MJRefresh.h>
+
+#import "IDOCommonDefine.h"
+#import "IDOCommonUtils.h"
+#import "IDOProjectDefine.h"
+#import "IDOProjectUtils.h"
+#import "IDONetworkServers.h"
+#import "IDOContext.h"
+
+#import "IDOUIAlertView.h"
+
+#import "IDOBaseViewController.h"
+#import "IDOUINavigationController.h"
+
+#endif
+#endif /* IDOGank_Prefix_pch */
