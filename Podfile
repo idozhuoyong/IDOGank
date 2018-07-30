@@ -22,18 +22,21 @@ target 'IDOGank' do
   pod 'Masonry', '~> 1.1.0'
   
   ### LCActionSheet 依赖：Masonry ###
-  #pod 'LCActionSheet', '~> 3.4.0'
+  pod 'LCActionSheet', '~> 3.4.0'
   
   ### RTRootNavigationController ###
   pod 'RTRootNavigationController', '~> 0.6.3'
   
   ### WRNavigationBar ###
-  #pod 'WRNavigationBar', '~> 1.2.0'
+  pod 'WRNavigationBar', '~> 1.2.0'
   
   ### WebViewJavascriptBridge ###
   pod 'WebViewJavascriptBridge', '~> 6.0.3'
   
   ### BlocksKit ###
   pod 'BlocksKit', '~> 2.2.5'
+  
+  ### SDWebImage ###
+  pod 'SDWebImage', '~> 4.0'
 
 end
