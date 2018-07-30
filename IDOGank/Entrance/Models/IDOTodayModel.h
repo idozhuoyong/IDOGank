@@ -20,6 +20,6 @@
 @property (nonatomic, copy) NSString *used;
 @property (nonatomic, copy) NSString *who;
 @property (nonatomic, strong) NSArray *images;
-
+@property (nonatomic, assign) CGFloat descTextHeight;
 
 @end

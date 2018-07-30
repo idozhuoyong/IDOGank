@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class IDOTodayModel;
 
 @interface IDOTodayCell : UITableViewCell
+
+- (void)setModel:(IDOTodayModel *)model;
 
 @end

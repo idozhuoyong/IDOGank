@@ -8,6 +8,7 @@
 
 #import "IDOTodayViewController.h"
 #import "IDOTodayCell.h"
+#import "IDOTodayHeaderView.h"
 #import "IDOTodayModel.h"
 
 @interface IDOTodayViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -77,7 +78,10 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 50;
+    self.tableView.estimatedRowHeight = 50;
+    self.tableView.estimatedSectionHeaderHeight = 50;
+    self.tableView.estimatedSectionFooterHeight = 50;
+    self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
 
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,12 +121,46 @@ static NSString * cellId = @"cellId";
         cell = [[IDOTodayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
+    NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:indexPath.section];
+    [cell setModel:[gankArray ido_safeObjectAtIndex:indexPath.row]];
+    
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return UITableViewAutomaticDimension;
+    }
+    return CGFLOAT_MIN;
+}
+
+static NSString * headerViewId = @"headerViewId";
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        IDOTodayHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerViewId];
+        if (!headerView) {
+            headerView = [[IDOTodayHeaderView alloc] initWithReuseIdentifier:headerViewId];
+        }
+        return headerView;
+    }
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - 网络请求
