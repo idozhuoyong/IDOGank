@@ -26,6 +26,8 @@
 
 + (UIColor *)ido_HexColorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
     
+    color = [color uppercaseString];
+    
     // 删除字符串中的空格
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     

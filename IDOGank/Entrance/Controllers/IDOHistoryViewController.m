@@ -8,10 +8,13 @@
 
 #import "IDOHistoryViewController.h"
 #import "IDOHistoryCell.h"
+#import "IDOHistoryModel.h"
 
 @interface IDOHistoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
@@ -51,25 +54,37 @@
             make.top.left.right.bottom.mas_equalTo(self.view).mas_offset(0);
         }
     }];
-    
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-    }];
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
-    }];
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//
+//    }];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//
+//    }];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.dataArray.count;
 }
 
+static NSString * cellId = @"cellId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    IDOHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    if (!cell) {
+        cell = [[IDOHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
+    [cell setModel:self.dataArray[indexPath.row]];
+    
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
@@ -86,14 +101,24 @@
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - 网络请求
 /** 获取历史干货数据 */
 - (void)getHistoryData {
-    
+    @weakObj(self);
     IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
     caller.transactionId = @"history/content/20/1";
     caller.isShowActivityIndicator = NO;
     [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
+        @strongObj(self);
+        
+        NSArray *results = [caller.responseObject objectForKey:@"results"];
+        self.dataArray = [[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results] copy];
+        
+        [self.tableView reloadData];
         
     } failure:^(IDOBussinessCaller *caller) {
         

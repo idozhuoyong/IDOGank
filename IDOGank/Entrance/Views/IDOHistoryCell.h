@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class IDOHistoryModel;
+
 @interface IDOHistoryCell : UITableViewCell
+
+- (void)setModel:(IDOHistoryModel *)model;
 
 @end
