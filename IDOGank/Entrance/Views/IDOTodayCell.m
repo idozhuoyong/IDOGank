@@ -9,6 +9,7 @@
 #import "IDOTodayCell.h"
 #import "IDOTodayModel.h"
 
+
 @interface IDOTodayCell ()
 
 @property(strong, nonatomic) UILabel * titleLabel;//标题
@@ -80,7 +81,7 @@
     
     // 图片
     if (model.images.count > 0) {
-        
+        [self.demoImageView ido_setImageWithURL:[NSURL ido_URLWithString:[model.images ido_safeObjectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     
     // 缓存文字高度

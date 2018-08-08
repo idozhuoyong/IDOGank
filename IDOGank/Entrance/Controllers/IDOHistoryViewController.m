@@ -98,7 +98,6 @@
     } failure:^(IDOBussinessCaller *caller) {
         
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,7 +17,7 @@
  @return 『URL』地址
  */
 + (nullable instancetype)ido_URLWithString:(NSString *)URLString {
-    URLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    URLString = URLString.stringByRemovingPercentEncoding;
     return [self URLWithString:URLString];
 }
 

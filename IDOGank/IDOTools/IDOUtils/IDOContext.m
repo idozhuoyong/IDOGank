@@ -25,6 +25,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
+        self.titleOrderArray = [@[
+                                  @"iOS", @"Android", @"前端", @"拓展资源", @"瞎推荐",
+                                  @"App", @"休息视频"
+                                  ] copy];
+        
     }
     return self;
 }

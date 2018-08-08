@@ -17,7 +17,7 @@
  @return id
  */
 - (id)ido_safeObjectAtIndex:(NSUInteger)index {
-    if (index >=0 && index < self.count) {
+    if (index < self.count) {
         return [self objectAtIndex:index];
     }
     return nil;

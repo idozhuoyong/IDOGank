@@ -23,7 +23,7 @@
     
     self.girlImageView = [[UIImageView alloc] init];
     self.girlImageView.userInteractionEnabled = YES;
-    self.girlImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.girlImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.girlImageView.clipsToBounds = YES;
     [self.contentView addSubview:self.girlImageView];
     

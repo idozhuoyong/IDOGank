@@ -23,6 +23,7 @@
 		2110C6142101BEEA00EA7728 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2110C60D2101BEEA00EA7728 /* PinyinHelper.m */; };
 		2110C6152101BEEA00EA7728 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2110C60F2101BEEA00EA7728 /* unicode_to_hanyu_pinyin.txt */; };
 		2110C61B2101DA1D00EA7728 /* IDONetworkServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2110C61A2101DA1D00EA7728 /* IDONetworkServers.m */; };
+		211BF54B21192C0A0088B213 /* UIImageView+IDOUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211BF54A21192C0A0088B213 /* UIImageView+IDOUIImageView.m */; };
 		2135E681210AAB0100E178F8 /* IDOTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135E680210AAB0100E178F8 /* IDOTestViewController.m */; };
 		213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */; };
 		213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322B2105709F00EE9EB8 /* IDOBussinessCheckCaller.m */; };
@@ -127,6 +128,8 @@
 		2110C60F2101BEEA00EA7728 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
 		2110C6192101DA1D00EA7728 /* IDONetworkServers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDONetworkServers.h; sourceTree = "<group>"; };
 		2110C61A2101DA1D00EA7728 /* IDONetworkServers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDONetworkServers.m; sourceTree = "<group>"; };
+		211BF54921192C0A0088B213 /* UIImageView+IDOUIImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+IDOUIImageView.h"; sourceTree = "<group>"; };
+		211BF54A21192C0A0088B213 /* UIImageView+IDOUIImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+IDOUIImageView.m"; sourceTree = "<group>"; };
 		2135E67F210AAB0100E178F8 /* IDOTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOTestViewController.h; sourceTree = "<group>"; };
 		2135E680210AAB0100E178F8 /* IDOTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOTestViewController.m; sourceTree = "<group>"; };
 		213C32282105709F00EE9EB8 /* IDOBussinessActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessActivityIndicator.h; sourceTree = "<group>"; };
@@ -387,10 +390,10 @@
 		215D7FFD210B1EFD00DFC097 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				215D7FFE210B1F1600DFC097 /* IDOTodayCell.h */,
-				215D7FFF210B1F1600DFC097 /* IDOTodayCell.m */,
 				21EE6AFB210EF17E00EA4AA4 /* IDOTodayHeaderView.h */,
 				21EE6AFC210EF17E00EA4AA4 /* IDOTodayHeaderView.m */,
+				215D7FFE210B1F1600DFC097 /* IDOTodayCell.h */,
+				215D7FFF210B1F1600DFC097 /* IDOTodayCell.m */,
 				21EE6AFE210F13A500EA4AA4 /* IDOHistoryCell.h */,
 				21EE6AFF210F13A500EA4AA4 /* IDOHistoryCell.m */,
 			);
@@ -598,6 +601,8 @@
 				21BF165421071562007D2AA2 /* NSURL+IDONSURL.m */,
 				21F42783210822680039CF43 /* UIColor+IDOUIColor.h */,
 				21F42784210822680039CF43 /* UIColor+IDOUIColor.m */,
+				211BF54921192C0A0088B213 /* UIImageView+IDOUIImageView.h */,
+				211BF54A21192C0A0088B213 /* UIImageView+IDOUIImageView.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				21BF16A3210725F1007D2AA2 /* UIImage+FFToast.m in Sources */,
 				2102066220EF0AE600E33EE7 /* IDOAppDelegate.m in Sources */,
 				21EE07D92100364500EAE4A2 /* base64.c in Sources */,
+				211BF54B21192C0A0088B213 /* UIImageView+IDOUIImageView.m in Sources */,
 				21BF16A4210725F1007D2AA2 /* FFBaseToastView.m in Sources */,
 				21BF165521071562007D2AA2 /* NSURL+IDONSURL.m in Sources */,
 				2110C61B2101DA1D00EA7728 /* IDONetworkServers.m in Sources */,

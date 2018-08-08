@@ -16,6 +16,9 @@
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UIViewController *rootViewController;
 
+/** 数据顺序数组 */
+@property (nonatomic, strong) NSArray *titleOrderArray;
+
 + (instancetype)sharedInstance;
 
 @end

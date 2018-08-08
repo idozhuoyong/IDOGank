@@ -22,9 +22,13 @@
     
     self.view.backgroundColor = [UIColor ido_RGBColorWithRed:239 green:239 blue:244];
     
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor ido_HexColorWithHexString:@"0xD33E42"];
-    self.navigationController.navigationBar.titleTextAttributes = [@{NSForegroundColorAttributeName:[UIColor whiteColor]} copy];
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.barTintColor = [UIColor ido_HexColorWithHexString:@"0xD33E42"];
+//    self.navigationController.navigationBar.titleTextAttributes = [@{NSForegroundColorAttributeName:[UIColor whiteColor]} copy];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action {

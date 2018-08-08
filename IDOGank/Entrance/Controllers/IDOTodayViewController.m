@@ -17,7 +17,9 @@
 @property (nonatomic, strong) UILabel * navTitleLabel;
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, copy) NSString *girlUrlString; // 妹子图
 
 @end
 
@@ -106,11 +108,16 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataArray.count;
+    return self.dataArray.count + 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:section];
-    return gankArray.count;
+    if (section == 0) {
+        return 0;
+    } else {
+        NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:(section - 1)];
+        return gankArray.count;
+    }
 }
 
 static NSString * cellId = @"cellId";
@@ -121,7 +128,7 @@ static NSString * cellId = @"cellId";
         cell = [[IDOTodayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:indexPath.section];
+    NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:(indexPath.section - 1)];
     [cell setModel:[gankArray ido_safeObjectAtIndex:indexPath.row]];
     
     return cell;
@@ -135,6 +142,8 @@ static NSString * cellId = @"cellId";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return UITableViewAutomaticDimension;
+    } else {
+        return UITableViewAutomaticDimension;
     }
     return CGFLOAT_MIN;
 }
@@ -146,7 +155,30 @@ static NSString * headerViewId = @"headerViewId";
         if (!headerView) {
             headerView = [[IDOTodayHeaderView alloc] initWithReuseIdentifier:headerViewId];
         }
+        
+        [headerView.girlImageView ido_setImageWithURL:[NSURL ido_URLWithString:self.girlUrlString] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        
         return headerView;
+    } else {
+        UIView *titleView = [UIView new];
+        
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.text = [self.titleArray ido_safeObjectAtIndex:(section - 1)];
+        // 设置中英文斜体
+        //titleLabel.font = [UIFont italicSystemFontOfSize:18];
+        CGAffineTransform matrix = CGAffineTransformMake(1, 0, tanf(10 * M_PI/180.0), 1, 0, 0);
+        UIFontDescriptor *desc = [UIFontDescriptor fontDescriptorWithName:[UIFont systemFontOfSize:18].fontName matrix:matrix];
+        titleLabel.font = [UIFont fontWithDescriptor:desc size:18];
+        titleLabel.textColor = [UIColor lightGrayColor];
+        [titleView addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(titleView).mas_offset(10);
+            make.left.mas_equalTo(titleView).mas_offset(15);
+            make.right.mas_equalTo(titleView).mas_offset(-15);
+            make.bottom.mas_equalTo(titleView).mas_offset(-10);
+        }];
+        
+        return titleView;
     }
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -175,47 +207,29 @@ static NSString * headerViewId = @"headerViewId";
 
         NSDictionary *results = [caller.responseObject objectForKey:@"results"];
         
-        NSMutableArray *contentMutableArray = [NSMutableArray array];
+        NSMutableArray *titleMutableArray = [NSMutableArray array];
+        NSMutableArray *dataMutableArray = [NSMutableArray array];
         
-        if ([results.allKeys containsObject:@"iOS"]) {
-            [contentMutableArray addObject:results[@"iOS"]];
-        }
-        
-        if ([results.allKeys containsObject:@"Android"]) {
-            [contentMutableArray addObject:results[@"Android"]];
-        }
-        
-        if ([results.allKeys containsObject:@"前端"]) {
-            [contentMutableArray addObject:results[@"前端"]];
-        }
-        
-        if ([results.allKeys containsObject:@"拓展资源"]) {
-            [contentMutableArray addObject:results[@"拓展资源"]];
-        }
-        
-        if ([results.allKeys containsObject:@"瞎推荐"]) {
-            [contentMutableArray addObject:results[@"瞎推荐"]];
-        }
-        
-        if ([results.allKeys containsObject:@"App"]) {
-            [contentMutableArray addObject:results[@"App"]];
-        }
-        
-        if ([results.allKeys containsObject:@"休息视频"]) {
-            [contentMutableArray addObject:results[@"休息视频"]];
+        for (NSString *title in KContext.titleOrderArray) {
+            if ([results.allKeys containsObject:title]) {
+                [titleMutableArray addObject:title];
+                [dataMutableArray addObject:results[title]];
+            }
         }
         
         if ([results.allKeys containsObject:@"福利"]) {
-            [contentMutableArray addObject:results[@"福利"]];
+            // 福利妹子图
+            NSArray *tempArray = results[@"福利"];
+            self.girlUrlString = [[tempArray ido_safeObjectAtIndex:0] objectForKey:@"url"];
         }
         
-        self.dataArray = [IDOTodayModel ido_objectArrayWithKeyValuesArray:contentMutableArray];
+        self.titleArray = [titleMutableArray copy];
+        self.dataArray = [IDOTodayModel ido_objectArrayWithKeyValuesArray:dataMutableArray];
         [self.tableView reloadData];
         
     } failure:^(IDOBussinessCaller *caller) {
         
     }];
-
 }
 
 @end

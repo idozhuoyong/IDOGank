@@ -10,6 +10,7 @@
 #import <IQKeyboardManager.h>
 #import "IDONetworkCheck.h"
 #import "IDODeviceInfo.h"
+#import <WRNavigationBar.h>
 
 #import "IDONetworkFailureViewController.h"
 #import "IDOUITabBarController.h"
@@ -84,6 +85,12 @@
     [keyboardManger setToolbarManageBehaviour:IQAutoToolbarByPosition]; // 工具条的创建方式
     keyboardManger.shouldShowToolbarPlaceholder = NO; // 是否显示TextFieldPlaceholder
     keyboardManger.previousNextDisplayMode = IQPreviousNextDisplayModeAlwaysHide;
+    
+    // 导航栏样式管理
+    [WRNavigationBar wr_setDefaultNavBarBarTintColor:[UIColor ido_HexColorWithHexString:@"0xD33E42"]]; // 设置导航栏默认的背景颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor whiteColor]]; // 设置导航栏所有按钮的默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor whiteColor]]; // 设置导航栏标题默认颜色
+    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent]; // 设置状态栏标题白色
     
     // 缓存公网IP
     [IDODeviceInfo getPublicIPAddress];

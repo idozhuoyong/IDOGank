@@ -20,6 +20,7 @@
 #import "NSURL+IDONSURL.h"
 #import "UIView+IDOUIView.h"
 #import "UIImage+IDOUIImage.h"
+#import "UIImageView+IDOUIImageView.h"
 #import "UIColor+IDOUIColor.h"
 
 #import <BlocksKit.h>
