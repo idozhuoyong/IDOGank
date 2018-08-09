@@ -29,6 +29,21 @@
 		211DD2E7211BE8B40054C81F /* UIView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2E2211BE8B40054C81F /* UIView+Empty.m */; };
 		211DD2E8211BE8B40054C81F /* UIView+LYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2E4211BE8B40054C81F /* UIView+LYExtension.m */; };
 		211DD2ED211BE9070054C81F /* IDOEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2EC211BE9070054C81F /* IDOEmptyView.m */; };
+		211DD311211C2F720054C81F /* UIImage+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2F0211C2F720054C81F /* UIImage+XLExtension.m */; };
+		211DD312211C2F720054C81F /* UIView+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2F2211C2F720054C81F /* UIView+XLExtension.m */; };
+		211DD313211C2F720054C81F /* FSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2F6211C2F720054C81F /* FSActionSheet.m */; };
+		211DD314211C2F720054C81F /* FSActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2F8211C2F720054C81F /* FSActionSheetCell.m */; };
+		211DD315211C2F720054C81F /* FSActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2FA211C2F720054C81F /* FSActionSheetConfig.m */; };
+		211DD316211C2F720054C81F /* FSActionSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD2FC211C2F720054C81F /* FSActionSheetItem.m */; };
+		211DD317211C2F720054C81F /* FSActionSheet_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 211DD2FE211C2F720054C81F /* FSActionSheet_cancel@2x.png */; };
+		211DD318211C2F720054C81F /* FSActionSheet_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 211DD2FF211C2F720054C81F /* FSActionSheet_cancel@3x.png */; };
+		211DD319211C2F720054C81F /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD302211C2F720054C81F /* TAAbstractDotView.m */; };
+		211DD31A211C2F720054C81F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD304211C2F720054C81F /* TAAnimatedDotView.m */; };
+		211DD31B211C2F720054C81F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD306211C2F720054C81F /* TADotView.m */; };
+		211DD31C211C2F720054C81F /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD308211C2F720054C81F /* TAPageControl.m */; };
+		211DD31D211C2F720054C81F /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30A211C2F720054C81F /* XLPhotoBrowser.m */; };
+		211DD31E211C2F720054C81F /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30E211C2F720054C81F /* XLProgressView.m */; };
+		211DD31F211C2F720054C81F /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD310211C2F720054C81F /* XLZoomingScrollView.m */; };
 		2135E681210AAB0100E178F8 /* IDOTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135E680210AAB0100E178F8 /* IDOTestViewController.m */; };
 		213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */; };
 		213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322B2105709F00EE9EB8 /* IDOBussinessCheckCaller.m */; };
@@ -147,6 +162,36 @@
 		211DD2E4211BE8B40054C81F /* UIView+LYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYExtension.m"; sourceTree = "<group>"; };
 		211DD2EB211BE9070054C81F /* IDOEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOEmptyView.h; sourceTree = "<group>"; };
 		211DD2EC211BE9070054C81F /* IDOEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOEmptyView.m; sourceTree = "<group>"; };
+		211DD2EF211C2F720054C81F /* UIImage+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XLExtension.h"; sourceTree = "<group>"; };
+		211DD2F0211C2F720054C81F /* UIImage+XLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XLExtension.m"; sourceTree = "<group>"; };
+		211DD2F1211C2F720054C81F /* UIView+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLExtension.h"; sourceTree = "<group>"; };
+		211DD2F2211C2F720054C81F /* UIView+XLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLExtension.m"; sourceTree = "<group>"; };
+		211DD2F5211C2F720054C81F /* FSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheet.h; sourceTree = "<group>"; };
+		211DD2F6211C2F720054C81F /* FSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheet.m; sourceTree = "<group>"; };
+		211DD2F7211C2F720054C81F /* FSActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetCell.h; sourceTree = "<group>"; };
+		211DD2F8211C2F720054C81F /* FSActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetCell.m; sourceTree = "<group>"; };
+		211DD2F9211C2F720054C81F /* FSActionSheetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetConfig.h; sourceTree = "<group>"; };
+		211DD2FA211C2F720054C81F /* FSActionSheetConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetConfig.m; sourceTree = "<group>"; };
+		211DD2FB211C2F720054C81F /* FSActionSheetItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetItem.h; sourceTree = "<group>"; };
+		211DD2FC211C2F720054C81F /* FSActionSheetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetItem.m; sourceTree = "<group>"; };
+		211DD2FE211C2F720054C81F /* FSActionSheet_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@2x.png"; sourceTree = "<group>"; };
+		211DD2FF211C2F720054C81F /* FSActionSheet_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@3x.png"; sourceTree = "<group>"; };
+		211DD301211C2F720054C81F /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		211DD302211C2F720054C81F /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		211DD303211C2F720054C81F /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		211DD304211C2F720054C81F /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		211DD305211C2F720054C81F /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		211DD306211C2F720054C81F /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		211DD307211C2F720054C81F /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		211DD308211C2F720054C81F /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		211DD309211C2F720054C81F /* XLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowser.h; sourceTree = "<group>"; };
+		211DD30A211C2F720054C81F /* XLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPhotoBrowser.m; sourceTree = "<group>"; };
+		211DD30B211C2F720054C81F /* XLPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		211DD30C211C2F720054C81F /* XLPhotoBrowserTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserTypeDefine.h; sourceTree = "<group>"; };
+		211DD30D211C2F720054C81F /* XLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLProgressView.h; sourceTree = "<group>"; };
+		211DD30E211C2F720054C81F /* XLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLProgressView.m; sourceTree = "<group>"; };
+		211DD30F211C2F720054C81F /* XLZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLZoomingScrollView.h; sourceTree = "<group>"; };
+		211DD310211C2F720054C81F /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
 		2135E67F210AAB0100E178F8 /* IDOTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOTestViewController.h; sourceTree = "<group>"; };
 		2135E680210AAB0100E178F8 /* IDOTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOTestViewController.m; sourceTree = "<group>"; };
 		213C32282105709F00EE9EB8 /* IDOBussinessActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessActivityIndicator.h; sourceTree = "<group>"; };
@@ -407,6 +452,75 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		211DD2EE211C2F720054C81F /* XLPhotoBrowser+CoderXL */ = {
+			isa = PBXGroup;
+			children = (
+				211DD2EF211C2F720054C81F /* UIImage+XLExtension.h */,
+				211DD2F0211C2F720054C81F /* UIImage+XLExtension.m */,
+				211DD2F1211C2F720054C81F /* UIView+XLExtension.h */,
+				211DD2F2211C2F720054C81F /* UIView+XLExtension.m */,
+				211DD2F3211C2F720054C81F /* Vender */,
+				211DD309211C2F720054C81F /* XLPhotoBrowser.h */,
+				211DD30A211C2F720054C81F /* XLPhotoBrowser.m */,
+				211DD30B211C2F720054C81F /* XLPhotoBrowserConfig.h */,
+				211DD30C211C2F720054C81F /* XLPhotoBrowserTypeDefine.h */,
+				211DD30D211C2F720054C81F /* XLProgressView.h */,
+				211DD30E211C2F720054C81F /* XLProgressView.m */,
+				211DD30F211C2F720054C81F /* XLZoomingScrollView.h */,
+				211DD310211C2F720054C81F /* XLZoomingScrollView.m */,
+			);
+			path = "XLPhotoBrowser+CoderXL";
+			sourceTree = "<group>";
+		};
+		211DD2F3211C2F720054C81F /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				211DD2F4211C2F720054C81F /* FSActionSheet */,
+				211DD300211C2F720054C81F /* PageControl */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		211DD2F4211C2F720054C81F /* FSActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				211DD2F5211C2F720054C81F /* FSActionSheet.h */,
+				211DD2F6211C2F720054C81F /* FSActionSheet.m */,
+				211DD2F7211C2F720054C81F /* FSActionSheetCell.h */,
+				211DD2F8211C2F720054C81F /* FSActionSheetCell.m */,
+				211DD2F9211C2F720054C81F /* FSActionSheetConfig.h */,
+				211DD2FA211C2F720054C81F /* FSActionSheetConfig.m */,
+				211DD2FB211C2F720054C81F /* FSActionSheetItem.h */,
+				211DD2FC211C2F720054C81F /* FSActionSheetItem.m */,
+				211DD2FD211C2F720054C81F /* FSActionSheetResources */,
+			);
+			path = FSActionSheet;
+			sourceTree = "<group>";
+		};
+		211DD2FD211C2F720054C81F /* FSActionSheetResources */ = {
+			isa = PBXGroup;
+			children = (
+				211DD2FE211C2F720054C81F /* FSActionSheet_cancel@2x.png */,
+				211DD2FF211C2F720054C81F /* FSActionSheet_cancel@3x.png */,
+			);
+			path = FSActionSheetResources;
+			sourceTree = "<group>";
+		};
+		211DD300211C2F720054C81F /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				211DD301211C2F720054C81F /* TAAbstractDotView.h */,
+				211DD302211C2F720054C81F /* TAAbstractDotView.m */,
+				211DD303211C2F720054C81F /* TAAnimatedDotView.h */,
+				211DD304211C2F720054C81F /* TAAnimatedDotView.m */,
+				211DD305211C2F720054C81F /* TADotView.h */,
+				211DD306211C2F720054C81F /* TADotView.m */,
+				211DD307211C2F720054C81F /* TAPageControl.h */,
+				211DD308211C2F720054C81F /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		213C32272105709F00EE9EB8 /* IDOBussinessAuxiliary */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +702,7 @@
 		21EE07CC2100210100EAE4A2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				211DD2EE211C2F720054C81F /* XLPhotoBrowser+CoderXL */,
 				211DD2DB211BE8B40054C81F /* LYEmptyView */,
 				21BF165D210725F1007D2AA2 /* FFToast */,
 				2110C6012101BEEA00EA7728 /* PinYin4Objc */,
@@ -780,10 +895,12 @@
 				21BF1691210725F1007D2AA2 /* fftoast_info@2x.png in Resources */,
 				21BF1694210725F1007D2AA2 /* fftoast_info_highlight@2x.png in Resources */,
 				21BF168C210725F1007D2AA2 /* fftoast_error@3x.png in Resources */,
+				211DD317211C2F720054C81F /* FSActionSheet_cancel@2x.png in Resources */,
 				21BF1696210725F1007D2AA2 /* fftoast_success.png in Resources */,
 				21BF168D210725F1007D2AA2 /* fftoast_error_highlight.png in Resources */,
 				21BF1687210725F1007D2AA2 /* fftoast_dismiss.png in Resources */,
 				21BF1690210725F1007D2AA2 /* fftoast_info.png in Resources */,
+				211DD318211C2F720054C81F /* FSActionSheet_cancel@3x.png in Resources */,
 				2102066A20EF0AE800E33EE7 /* Assets.xcassets in Resources */,
 				21BF169E210725F1007D2AA2 /* fftoast_warning@3x.png in Resources */,
 				21BF168A210725F1007D2AA2 /* fftoast_error.png in Resources */,
@@ -857,14 +974,19 @@
 				21F4278121081F260039CF43 /* IDONetworkFailureViewController.m in Sources */,
 				2110C5F42101838700EA7728 /* IDOKeyChain.m in Sources */,
 				215D7FF9210B07DD00DFC097 /* IDOTodayModel.m in Sources */,
+				211DD312211C2F720054C81F /* UIView+XLExtension.m in Sources */,
+				211DD31C211C2F720054C81F /* TAPageControl.m in Sources */,
 				21BF16AB2107279D007D2AA2 /* IDOUIAlertView.m in Sources */,
+				211DD311211C2F720054C81F /* UIImage+XLExtension.m in Sources */,
 				213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */,
 				213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */,
 				215D8000210B1F1600DFC097 /* IDOTodayCell.m in Sources */,
 				2110C6002101BB9100EA7728 /* IDOCommonUtils.m in Sources */,
 				21BF16A6210725F1007D2AA2 /* FFToast.m in Sources */,
+				211DD313211C2F720054C81F /* FSActionSheet.m in Sources */,
 				2110C6102101BEEA00EA7728 /* ChineseToPinyinResource.m in Sources */,
 				21F42797210858760039CF43 /* IDOUINavigationController.m in Sources */,
+				211DD316211C2F720054C81F /* FSActionSheetItem.m in Sources */,
 				21F42788210827F30039CF43 /* IDOInitializeViewController.m in Sources */,
 				21F42794210857CA0039CF43 /* IDOHistoryViewController.m in Sources */,
 				21EE07C421001A3E00EAE4A2 /* IDOBussinessCaller.m in Sources */,
@@ -876,9 +998,12 @@
 				21F4279A210868DF0039CF43 /* IDOBaseViewController.m in Sources */,
 				21F4277C2108193F0039CF43 /* NSObject+IDOExtension.m in Sources */,
 				21BF165C210723AF007D2AA2 /* IDOProjectUtils.m in Sources */,
+				211DD319211C2F720054C81F /* TAAbstractDotView.m in Sources */,
 				211DD2E7211BE8B40054C81F /* UIView+Empty.m in Sources */,
 				21EE07CB21001A3E00EAE4A2 /* IDONetworkCheck.m in Sources */,
+				211DD314211C2F720054C81F /* FSActionSheetCell.m in Sources */,
 				21F42785210822680039CF43 /* UIColor+IDOUIColor.m in Sources */,
+				211DD31B211C2F720054C81F /* TADotView.m in Sources */,
 				2110C5FA21018F2F00EA7728 /* IDOValueCheck.m in Sources */,
 				21EE07C721001A3E00EAE4A2 /* IDOBussinessTransaction.m in Sources */,
 				21EE07C921001A3E00EAE4A2 /* IDOHTTPRequestManager.m in Sources */,
@@ -888,6 +1013,7 @@
 				2110C5F721018CCB00EA7728 /* IDODeviceInfo.m in Sources */,
 				21EE07D62100360500EAE4A2 /* IDOBase64.m in Sources */,
 				21BF16A5210725F1007D2AA2 /* FFCentreToastView.m in Sources */,
+				211DD31D211C2F720054C81F /* XLPhotoBrowser.m in Sources */,
 				21EE07DD21003A7400EAE4A2 /* NSString+IDONSString.m in Sources */,
 				21EE07D02100211400EAE4A2 /* Reachability.m in Sources */,
 				211DD2ED211BE9070054C81F /* IDOEmptyView.m in Sources */,
@@ -899,10 +1025,14 @@
 				21EE07D92100364500EAE4A2 /* base64.c in Sources */,
 				211BF54B21192C0A0088B213 /* UIImageView+IDOUIImageView.m in Sources */,
 				211DD2E6211BE8B40054C81F /* LYEmptyView.m in Sources */,
+				211DD315211C2F720054C81F /* FSActionSheetConfig.m in Sources */,
 				21BF16A4210725F1007D2AA2 /* FFBaseToastView.m in Sources */,
+				211DD31A211C2F720054C81F /* TAAnimatedDotView.m in Sources */,
 				21BF165521071562007D2AA2 /* NSURL+IDONSURL.m in Sources */,
 				2110C61B2101DA1D00EA7728 /* IDONetworkServers.m in Sources */,
 				2110C6142101BEEA00EA7728 /* PinyinHelper.m in Sources */,
+				211DD31E211C2F720054C81F /* XLProgressView.m in Sources */,
+				211DD31F211C2F720054C81F /* XLZoomingScrollView.m in Sources */,
 				21F4278B210828CA0039CF43 /* IDOUITabBarController.m in Sources */,
 				21EE07C621001A3E00EAE4A2 /* IDOBussinessLogic.m in Sources */,
 				21EE6AFD210EF17E00EA4AA4 /* IDOTodayHeaderView.m in Sources */,

@@ -28,6 +28,7 @@
 #import <BlocksKit+MessageUI.h>
 #import <Masonry.h>
 #import <MJRefresh.h>
+#import "XLPhotoBrowser.h"
 
 #import "IDOCommonDefine.h"
 #import "IDOCommonUtils.h"

@@ -10,8 +10,9 @@
 #import "IDOTodayCell.h"
 #import "IDOTodayHeaderView.h"
 #import "IDOTodayModel.h"
+#import "IDOHistoryModel.h"
 
-@interface IDOTodayViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface IDOTodayViewController () <UITableViewDataSource, UITableViewDelegate, XLPhotoBrowserDatasource, XLPhotoBrowserDelegate>
 
 @property (nonatomic, strong) UILabel * titleLabel; // 标题
 @property (nonatomic, strong) UILabel * navTitleLabel;
@@ -55,7 +56,7 @@
     self.navTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.navTitleLabel.textColor = [UIColor whiteColor];
     self.navTitleLabel.font = [UIFont systemFontOfSize:12.f];
-    self.navTitleLabel.text = @"2018-07-26";
+    //self.navTitleLabel.text = @"2018-07-26";
     [navTitleView addSubview:self.navTitleLabel];
     self.navigationItem.titleView = navTitleView;
 }
@@ -67,7 +68,7 @@
     self.titleLabel.backgroundColor = [UIColor ido_HexColorWithHexString:@"0xD7E9F7"];
     self.titleLabel.textColor = [UIColor ido_HexColorWithHexString:@"0x61ABD4"];
     self.titleLabel.font = [UIFont systemFontOfSize:14.f];
-    self.titleLabel.text = @"今日力推：全部干货";
+    //self.titleLabel.text = @"今日力推：全部干货";
     [self.view addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
@@ -171,6 +172,11 @@ static NSString * headerViewId = @"headerViewId";
         
         [headerView.girlImageView ido_setImageWithURL:[NSURL ido_URLWithString:self.girlUrlString] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
+        [headerView.girlImageView bk_whenTapped:^{
+            XLPhotoBrowser *browser = [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:0 imageCount:1 datasource:self];
+            [browser setActionSheetWithTitle:nil delegate:self cancelButtonTitle:nil deleteButtonTitle:nil otherButtonTitles:@"保存图片", nil];
+        }];
+        
         return headerView;
     } else {
         UIView *titleView = [UIView new];
@@ -208,10 +214,25 @@ static NSString * headerViewId = @"headerViewId";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - XLPhotoBrowserDatasource
+- (NSURL *)photoBrowser:(XLPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    return [NSURL ido_URLWithString:self.girlUrlString];
+}
+
+#pragma mark - XLPhotoBrowserDelegate
+- (void)photoBrowser:(XLPhotoBrowser *)browser clickActionSheetIndex:(NSInteger)actionSheetindex currentImageIndex:(NSInteger)currentImageIndex {
+    [browser saveCurrentShowImage];
+}
+
 #pragma mark - 网络请求
 /** 获取最新干货数据 */
 - (void)getTodayData {
+    
     @weakObj(self)
+    
+    // 获取历史数据
+    [self getHistoryData];
+    
     IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
     caller.transactionId = @"today";
     caller.isShowActivityIndicator = YES;
@@ -249,5 +270,36 @@ static NSString * headerViewId = @"headerViewId";
         [self.tableView ly_endLoading];
     }];
 }
+
+/** 获取历史干货数据 */
+- (void)getHistoryData {
+    @weakObj(self);
+    IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
+    caller.transactionId = @"history/content/1/1";
+    caller.isShowActivityIndicator = NO;
+    [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
+        @strongObj(self);
+        NSArray *results = [caller.responseObject objectForKey:@"results"];
+        NSArray *resultsModel = [[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results] copy];
+        
+        if (resultsModel.count > 0) {
+            IDOHistoryModel *model = resultsModel[0];
+            
+            // 标题
+            self.titleLabel.text = [IDOCommonUtils trimString:model.title];
+            
+            // 发布日期
+            NSString *publishedDate = [IDOCommonUtils trimString:model.publishedAt];
+            NSArray *publishedArray = [publishedDate componentsSeparatedByString:@"T"];
+            if (publishedArray.count > 0) {
+                publishedDate = [IDOCommonUtils trimString:publishedArray[0]];
+            }
+            self.navTitleLabel.text = publishedDate;
+        }
+    } failure:^(IDOBussinessCaller *caller) {
+        
+    }];
+}
+
 
 @end
