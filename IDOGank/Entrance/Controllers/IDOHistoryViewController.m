@@ -14,7 +14,9 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, assign) BOOL isPullRefresh;
+@property (nonatomic, assign) int page;
 
 @end
 
@@ -26,7 +28,8 @@
     [self initNav];
     [self initUI];
     
-    [self getHistoryData];
+    // 下拉刷新
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - init
@@ -41,7 +44,6 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
-    self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,12 +56,28 @@
             make.top.left.right.bottom.mas_equalTo(self.view).mas_offset(0);
         }
     }];
-//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//
-//    }];
-//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//
-//    }];
+    
+    @weakObj(self)
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongObj(self)
+        self.tableView.mj_header.hidden = NO;
+        self.tableView.mj_footer.hidden = YES;
+        self.isPullRefresh = YES;
+        self.page = 1;
+        
+        [self getHistoryData];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongObj(self)
+        self.tableView.mj_header.hidden = YES;
+        self.tableView.mj_footer.hidden = NO;
+        self.isPullRefresh = NO;
+        self.page = self.page + 1;
+        
+        [self getHistoryData];
+    }];
+    self.tableView.mj_header.hidden = YES;
+    self.tableView.mj_footer.hidden = YES;
 }
 
 #pragma mark - UITableViewDataSource
@@ -110,15 +128,30 @@ static NSString * cellId = @"cellId";
 - (void)getHistoryData {
     @weakObj(self);
     IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
-    caller.transactionId = @"history/content/20/1";
+    caller.transactionId = [NSString stringWithFormat:@"history/content/20/%d", self.page];
     caller.isShowActivityIndicator = NO;
     [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
         @strongObj(self);
         
         NSArray *results = [caller.responseObject objectForKey:@"results"];
-        self.dataArray = [[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results] copy];
+        if (self.isPullRefresh) {
+            // 下拉刷新
+             self.dataArray = [[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results] mutableCopy];
+        } else {
+            // 上拉加载
+            [self.dataArray addObjectsFromArray:[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results]];
+        }
         
         [self.tableView reloadData];
+        
+        if (self.isPullRefresh) {
+            [self.tableView.mj_header endRefreshing];
+        } else {
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
+        self.tableView.mj_header.hidden = NO;
+        self.tableView.mj_footer.hidden = NO;
         
     } failure:^(IDOBussinessCaller *caller) {
         

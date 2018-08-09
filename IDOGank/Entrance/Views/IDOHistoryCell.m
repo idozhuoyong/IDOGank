@@ -139,7 +139,12 @@
     }
     
     // 发布日期
-    self.dateLabel.text = [NSString stringWithFormat:@"发布日期：%@", [IDOCommonUtils trimString:model.publishedAt]];
+    NSString *publishedDate = [IDOCommonUtils trimString:model.publishedAt];
+    NSArray *publishedArray = [publishedDate componentsSeparatedByString:@"T"];
+    if (publishedArray.count > 0) {
+        publishedDate = [IDOCommonUtils trimString:publishedArray[0]];
+    }
+    self.dateLabel.text = [NSString stringWithFormat:@"发布日期：%@", publishedDate];
 }
 
 @end
