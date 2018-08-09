@@ -38,7 +38,11 @@
 
 #pragma mark - init
 - (void)initNav {
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage ido_imageNamed:@"refresh_icon"] style:UIBarButtonItemStyleDone handler:^(id sender) {}];
+    @weakObj(self);
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage ido_imageNamed:@"refresh_icon"] style:UIBarButtonItemStyleDone handler:^(id sender) {
+        @strongObj(self);
+        [self getTodayData];
+    }];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     UIView *navTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 44)];
@@ -104,11 +108,20 @@
     [footer setTitle:@"感谢所有默默付出的编辑们\n愿大家有美好一天" forState:MJRefreshStateNoMoreData];
     self.tableView.mj_footer = footer;
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    
+    @weakObj(self);
+    self.tableView.ly_emptyView = [IDOEmptyView defaultNoDataEmptyWithBtnClickBlock:^{
+        @strongObj(self);
+        [self getTodayData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataArray.count + 1;
+    if (self.dataArray.count > 0) {
+        return self.dataArray.count + 1;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -201,7 +214,9 @@ static NSString * headerViewId = @"headerViewId";
     @weakObj(self)
     IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
     caller.transactionId = @"today";
-    caller.isShowActivityIndicator = NO;
+    caller.isShowActivityIndicator = YES;
+    
+    [self.tableView ly_startLoading];
     [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
         @strongObj(self)
 
@@ -227,8 +242,11 @@ static NSString * headerViewId = @"headerViewId";
         self.dataArray = [IDOTodayModel ido_objectArrayWithKeyValuesArray:dataMutableArray];
         [self.tableView reloadData];
         
+        [self.tableView ly_endLoading];
     } failure:^(IDOBussinessCaller *caller) {
+        @strongObj(self)
         
+        [self.tableView ly_endLoading];
     }];
 }
 

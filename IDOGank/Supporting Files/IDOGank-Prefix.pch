@@ -37,6 +37,7 @@
 #import "IDOContext.h"
 
 #import "IDOUIAlertView.h"
+#import "IDOEmptyView.h"
 
 #import "IDOBaseViewController.h"
 #import "IDOUINavigationController.h"

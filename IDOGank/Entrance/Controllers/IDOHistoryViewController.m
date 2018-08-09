@@ -28,8 +28,10 @@
     [self initNav];
     [self initUI];
     
-    // 下拉刷新
-    [self.tableView.mj_header beginRefreshing];
+    self.isPullRefresh = YES;
+    self.page = 1;
+    
+    [self getHistoryData];
 }
 
 #pragma mark - init
@@ -57,9 +59,10 @@
         }
     }];
     
-    @weakObj(self)
+    @weakObj(self);
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @strongObj(self)
+        @strongObj(self);
+        
         self.tableView.mj_header.hidden = NO;
         self.tableView.mj_footer.hidden = YES;
         self.isPullRefresh = YES;
@@ -68,7 +71,8 @@
         [self getHistoryData];
     }];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        @strongObj(self)
+        @strongObj(self);
+        
         self.tableView.mj_header.hidden = YES;
         self.tableView.mj_footer.hidden = NO;
         self.isPullRefresh = NO;
@@ -78,6 +82,17 @@
     }];
     self.tableView.mj_header.hidden = YES;
     self.tableView.mj_footer.hidden = YES;
+    
+    self.tableView.ly_emptyView = [IDOEmptyView defaultNoDataEmptyWithBtnClickBlock:^{
+        @strongObj(self);
+        
+        self.tableView.mj_header.hidden = YES;
+        self.tableView.mj_footer.hidden = YES;
+        self.isPullRefresh = YES;
+        self.page = 1;
+        
+        [self getHistoryData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -129,7 +144,13 @@ static NSString * cellId = @"cellId";
     @weakObj(self);
     IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
     caller.transactionId = [NSString stringWithFormat:@"history/content/20/%d", self.page];
-    caller.isShowActivityIndicator = NO;
+    if (self.isPullRefresh) {
+        caller.isShowActivityIndicator = YES;
+    } else {
+        caller.isShowActivityIndicator = NO;
+    }
+    
+    [self.tableView ly_startLoading];
     [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
         @strongObj(self);
         
@@ -142,7 +163,25 @@ static NSString * cellId = @"cellId";
             [self.dataArray addObjectsFromArray:[IDOHistoryModel ido_objectArrayWithKeyValuesArray:results]];
         }
         
+        if (self.isPullRefresh) {
+            [self.tableView.mj_header endRefreshing];
+        } else {
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
         [self.tableView reloadData];
+        
+        if (self.dataArray.count == 0) {
+            self.tableView.mj_header.hidden = YES;
+            self.tableView.mj_footer.hidden = YES;
+        } else {
+            self.tableView.mj_header.hidden = NO;
+            self.tableView.mj_footer.hidden = NO;
+        }
+        
+        [self.tableView ly_endLoading];
+    } failure:^(IDOBussinessCaller *caller) {
+        @strongObj(self);
         
         if (self.isPullRefresh) {
             [self.tableView.mj_header endRefreshing];
@@ -150,11 +189,17 @@ static NSString * cellId = @"cellId";
             [self.tableView.mj_footer endRefreshing];
         }
         
-        self.tableView.mj_header.hidden = NO;
-        self.tableView.mj_footer.hidden = NO;
+        [self.tableView reloadData];
         
-    } failure:^(IDOBussinessCaller *caller) {
+        if (self.dataArray.count == 0) {
+            self.tableView.mj_header.hidden = YES;
+            self.tableView.mj_footer.hidden = YES;
+        } else {
+            self.tableView.mj_header.hidden = NO;
+            self.tableView.mj_footer.hidden = NO;
+        }
         
+        [self.tableView ly_endLoading];
     }];
 }
 
