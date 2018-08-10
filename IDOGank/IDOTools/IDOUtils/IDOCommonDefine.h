@@ -26,6 +26,15 @@
 #define KNavgationAndStateHeight (KNavtationHeight + KStatusBarHeight)
 #define KTabBarHeight (self.tabBarController.tabBar.frame.size.height > 0 ? self.tabBarController.tabBar.frame.size.height : 49) // 49
 
+#pragma mark - iOS系统版本相关
+/**
+ iOS系统版本相关
+ */
+#define KIOS_VERSION_8_OR_ABOVE ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+#define KIOS_VERSION_9_OR_ABOVE ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+#define KIOS_VERSION_10_OR_ABOVE ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+#define KIOS_VERSION_11_OR_ABOVE ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
+
 
 #pragma mark - 日志打印相关
 /**

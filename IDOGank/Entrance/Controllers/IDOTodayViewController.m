@@ -7,6 +7,7 @@
 //
 
 #import "IDOTodayViewController.h"
+#import "IDODetailViewController.h"
 #import "IDOTodayCell.h"
 #import "IDOTodayHeaderView.h"
 #import "IDOTodayModel.h"
@@ -212,6 +213,13 @@ static NSString * headerViewId = @"headerViewId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:(indexPath.section - 1)];
+    IDOTodayModel *model = [gankArray ido_safeObjectAtIndex:indexPath.row];
+    
+    IDODetailViewController *vc = [[IDODetailViewController alloc] init];
+    vc.urlString = model.url;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - XLPhotoBrowserDatasource

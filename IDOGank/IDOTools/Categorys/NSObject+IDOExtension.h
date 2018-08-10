@@ -1,9 +1,9 @@
 //
 //  NSObject+IDOExtension.h
-//  jxbankMobileClient
+//  IDOGank
 //
 //  Created by 卓勇 on 2017/7/15.
-//  Copyright © 2017年 北京科蓝软件系统股份有限公司. All rights reserved.
+//  Copyright © 2017年 激情工作室. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

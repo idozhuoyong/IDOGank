@@ -44,10 +44,15 @@
 		211DD31D211C2F720054C81F /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30A211C2F720054C81F /* XLPhotoBrowser.m */; };
 		211DD31E211C2F720054C81F /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30E211C2F720054C81F /* XLProgressView.m */; };
 		211DD31F211C2F720054C81F /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD310211C2F720054C81F /* XLZoomingScrollView.m */; };
-		2135E681210AAB0100E178F8 /* IDOTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135E680210AAB0100E178F8 /* IDOTestViewController.m */; };
 		213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */; };
 		213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322B2105709F00EE9EB8 /* IDOBussinessCheckCaller.m */; };
 		213C32302105709F00EE9EB8 /* IDORepeatTrsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322D2105709F00EE9EB8 /* IDORepeatTrsHandler.m */; };
+		21455F77211D1EEF00A7B7C3 /* IDOWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F74211D1EEE00A7B7C3 /* IDOWKWebView.m */; };
+		21455F78211D1EEF00A7B7C3 /* IDOUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F75211D1EEF00A7B7C3 /* IDOUIWebView.m */; };
+		21455F7B211D212400A7B7C3 /* IDODetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F7A211D212300A7B7C3 /* IDODetailViewController.m */; };
+		21455F81211D257A00A7B7C3 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F7E211D257900A7B7C3 /* NJKWebViewProgress.m */; };
+		21455F82211D257A00A7B7C3 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F80211D257900A7B7C3 /* NJKWebViewProgressView.m */; };
+		21455F85211D868E00A7B7C3 /* IDOHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */; };
 		215D7FF9210B07DD00DFC097 /* IDOTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FF8210B07DD00DFC097 /* IDOTodayModel.m */; };
 		215D7FFC210B0A8500DFC097 /* NSArray+IDONSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FFB210B0A8500DFC097 /* NSArray+IDONSArray.m */; };
 		215D8000210B1F1600DFC097 /* IDOTodayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FFF210B1F1600DFC097 /* IDOTodayCell.m */; };
@@ -192,14 +197,24 @@
 		211DD30E211C2F720054C81F /* XLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLProgressView.m; sourceTree = "<group>"; };
 		211DD30F211C2F720054C81F /* XLZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLZoomingScrollView.h; sourceTree = "<group>"; };
 		211DD310211C2F720054C81F /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
-		2135E67F210AAB0100E178F8 /* IDOTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOTestViewController.h; sourceTree = "<group>"; };
-		2135E680210AAB0100E178F8 /* IDOTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOTestViewController.m; sourceTree = "<group>"; };
 		213C32282105709F00EE9EB8 /* IDOBussinessActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessActivityIndicator.h; sourceTree = "<group>"; };
 		213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOBussinessActivityIndicator.m; sourceTree = "<group>"; };
 		213C322A2105709F00EE9EB8 /* IDOBussinessCheckCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessCheckCaller.h; sourceTree = "<group>"; };
 		213C322B2105709F00EE9EB8 /* IDOBussinessCheckCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOBussinessCheckCaller.m; sourceTree = "<group>"; };
 		213C322C2105709F00EE9EB8 /* IDORepeatTrsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDORepeatTrsHandler.h; sourceTree = "<group>"; };
 		213C322D2105709F00EE9EB8 /* IDORepeatTrsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDORepeatTrsHandler.m; sourceTree = "<group>"; };
+		21455F73211D1EEE00A7B7C3 /* IDOWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOWKWebView.h; sourceTree = "<group>"; };
+		21455F74211D1EEE00A7B7C3 /* IDOWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOWKWebView.m; sourceTree = "<group>"; };
+		21455F75211D1EEF00A7B7C3 /* IDOUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOUIWebView.m; sourceTree = "<group>"; };
+		21455F76211D1EEF00A7B7C3 /* IDOUIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOUIWebView.h; sourceTree = "<group>"; };
+		21455F79211D212300A7B7C3 /* IDODetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDODetailViewController.h; sourceTree = "<group>"; };
+		21455F7A211D212300A7B7C3 /* IDODetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDODetailViewController.m; sourceTree = "<group>"; };
+		21455F7D211D257900A7B7C3 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		21455F7E211D257900A7B7C3 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		21455F7F211D257900A7B7C3 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		21455F80211D257900A7B7C3 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		21455F83211D868E00A7B7C3 /* IDOHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOHistoryDetailViewController.h; sourceTree = "<group>"; };
+		21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOHistoryDetailViewController.m; sourceTree = "<group>"; };
 		215D7FF7210B07DD00DFC097 /* IDOTodayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOTodayModel.h; sourceTree = "<group>"; };
 		215D7FF8210B07DD00DFC097 /* IDOTodayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOTodayModel.m; sourceTree = "<group>"; };
 		215D7FFA210B0A8500DFC097 /* NSArray+IDONSArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+IDONSArray.h"; sourceTree = "<group>"; };
@@ -534,6 +549,17 @@
 			path = IDOBussinessAuxiliary;
 			sourceTree = "<group>";
 		};
+		21455F7C211D257900A7B7C3 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				21455F7D211D257900A7B7C3 /* NJKWebViewProgress.h */,
+				21455F7E211D257900A7B7C3 /* NJKWebViewProgress.m */,
+				21455F7F211D257900A7B7C3 /* NJKWebViewProgressView.h */,
+				21455F80211D257900A7B7C3 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
 		215D7FF4210B079A00DFC097 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +728,7 @@
 		21EE07CC2100210100EAE4A2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				21455F7C211D257900A7B7C3 /* NJKWebViewProgress */,
 				211DD2EE211C2F720054C81F /* XLPhotoBrowser+CoderXL */,
 				211DD2DB211BE8B40054C81F /* LYEmptyView */,
 				21BF165D210725F1007D2AA2 /* FFToast */,
@@ -791,8 +818,10 @@
 		21F42779210817BC0039CF43 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2135E67F210AAB0100E178F8 /* IDOTestViewController.h */,
-				2135E680210AAB0100E178F8 /* IDOTestViewController.m */,
+				21455F83211D868E00A7B7C3 /* IDOHistoryDetailViewController.h */,
+				21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */,
+				21455F79211D212300A7B7C3 /* IDODetailViewController.h */,
+				21455F7A211D212300A7B7C3 /* IDODetailViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -813,6 +842,10 @@
 		21F4277E21081EFF0039CF43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21455F76211D1EEF00A7B7C3 /* IDOUIWebView.h */,
+				21455F75211D1EEF00A7B7C3 /* IDOUIWebView.m */,
+				21455F73211D1EEE00A7B7C3 /* IDOWKWebView.h */,
+				21455F74211D1EEE00A7B7C3 /* IDOWKWebView.m */,
 				21BF16A92107279D007D2AA2 /* IDOUIAlertView.h */,
 				21BF16AA2107279D007D2AA2 /* IDOUIAlertView.m */,
 			);
@@ -975,12 +1008,14 @@
 				2110C5F42101838700EA7728 /* IDOKeyChain.m in Sources */,
 				215D7FF9210B07DD00DFC097 /* IDOTodayModel.m in Sources */,
 				211DD312211C2F720054C81F /* UIView+XLExtension.m in Sources */,
+				21455F82211D257A00A7B7C3 /* NJKWebViewProgressView.m in Sources */,
 				211DD31C211C2F720054C81F /* TAPageControl.m in Sources */,
 				21BF16AB2107279D007D2AA2 /* IDOUIAlertView.m in Sources */,
 				211DD311211C2F720054C81F /* UIImage+XLExtension.m in Sources */,
 				213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */,
 				213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */,
 				215D8000210B1F1600DFC097 /* IDOTodayCell.m in Sources */,
+				21455F78211D1EEF00A7B7C3 /* IDOUIWebView.m in Sources */,
 				2110C6002101BB9100EA7728 /* IDOCommonUtils.m in Sources */,
 				21BF16A6210725F1007D2AA2 /* FFToast.m in Sources */,
 				211DD313211C2F720054C81F /* FSActionSheet.m in Sources */,
@@ -993,10 +1028,12 @@
 				211DD2E8211BE8B40054C81F /* UIView+LYExtension.m in Sources */,
 				2110C5F121017D5100EA7728 /* NSObject+IDONSObject.m in Sources */,
 				21BF165221071531007D2AA2 /* UIImage+IDOUIImage.m in Sources */,
+				21455F85211D868E00A7B7C3 /* IDOHistoryDetailViewController.m in Sources */,
 				21F4278E210829F20039CF43 /* IDOContext.m in Sources */,
 				215D7FFC210B0A8500DFC097 /* NSArray+IDONSArray.m in Sources */,
 				21F4279A210868DF0039CF43 /* IDOBaseViewController.m in Sources */,
 				21F4277C2108193F0039CF43 /* NSObject+IDOExtension.m in Sources */,
+				21455F77211D1EEF00A7B7C3 /* IDOWKWebView.m in Sources */,
 				21BF165C210723AF007D2AA2 /* IDOProjectUtils.m in Sources */,
 				211DD319211C2F720054C81F /* TAAbstractDotView.m in Sources */,
 				211DD2E7211BE8B40054C81F /* UIView+Empty.m in Sources */,
@@ -1014,12 +1051,14 @@
 				21EE07D62100360500EAE4A2 /* IDOBase64.m in Sources */,
 				21BF16A5210725F1007D2AA2 /* FFCentreToastView.m in Sources */,
 				211DD31D211C2F720054C81F /* XLPhotoBrowser.m in Sources */,
+				21455F81211D257A00A7B7C3 /* NJKWebViewProgress.m in Sources */,
 				21EE07DD21003A7400EAE4A2 /* NSString+IDONSString.m in Sources */,
 				21EE07D02100211400EAE4A2 /* Reachability.m in Sources */,
 				211DD2ED211BE9070054C81F /* IDOEmptyView.m in Sources */,
 				21BF164F210714A9007D2AA2 /* UIView+IDOUIView.m in Sources */,
 				2102067020EF0AE800E33EE7 /* main.m in Sources */,
 				2110C6112101BEEA00EA7728 /* HanyuPinyinOutputFormat.m in Sources */,
+				21455F7B211D212400A7B7C3 /* IDODetailViewController.m in Sources */,
 				21BF16A3210725F1007D2AA2 /* UIImage+FFToast.m in Sources */,
 				2102066220EF0AE600E33EE7 /* IDOAppDelegate.m in Sources */,
 				21EE07D92100364500EAE4A2 /* base64.c in Sources */,
@@ -1037,7 +1076,6 @@
 				21EE07C621001A3E00EAE4A2 /* IDOBussinessLogic.m in Sources */,
 				21EE6AFD210EF17E00EA4AA4 /* IDOTodayHeaderView.m in Sources */,
 				21EE6B00210F13A500EA4AA4 /* IDOHistoryCell.m in Sources */,
-				2135E681210AAB0100E178F8 /* IDOTestViewController.m in Sources */,
 				2110C6132101BEEA00EA7728 /* PinyinFormatter.m in Sources */,
 				211DD2E5211BE8B40054C81F /* LYEmptyBaseView.m in Sources */,
 				2110C6122101BEEA00EA7728 /* NSString+PinYin4Cocoa.m in Sources */,
