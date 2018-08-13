@@ -65,6 +65,7 @@
                 sha1String = [sha1String stringByReplacingOccurrencesOfString:@">" withString:@""];
                 NSLog(@"sha1String:%@", sha1String);
                 //[[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@""];
+                CFRelease(certData);
             } @catch (NSException *e) {
                 NSLog(@"服务器证书指纹SHA-1值获取失败");
             }

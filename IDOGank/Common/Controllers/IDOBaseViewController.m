@@ -33,8 +33,8 @@
 }
 
 - (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action {
-    UIImage *backImage = [UIImage ido_imageNamed:@"return_black"];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:target action:action];
+    UIImage *backImage = [[UIImage ido_imageNamed:@"return_black"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStyleDone target:target action:action];
     return backItem;
 }
 

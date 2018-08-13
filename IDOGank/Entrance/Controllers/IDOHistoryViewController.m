@@ -7,6 +7,7 @@
 //
 
 #import "IDOHistoryViewController.h"
+#import "IDOTodayViewController.h"
 #import "IDOHistoryCell.h"
 #import "IDOHistoryModel.h"
 
@@ -136,6 +137,11 @@ static NSString * cellId = @"cellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    IDOTodayViewController *vc = [[IDOTodayViewController alloc] init];
+    vc.jumpType = GankJumpTypeHistory;
+    vc.historyModel = self.dataArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 网络请求

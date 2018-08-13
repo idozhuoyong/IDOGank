@@ -8,9 +8,19 @@
 
 #import "IDOBaseViewController.h"
 
+@class IDOHistoryModel;
+
+typedef enum : NSUInteger {
+    GankJumpTypeToday, // 最新干货
+    GankJumpTypeHistory, // 历史干货
+} GankJumpType;
+
 /**
  最新干货
  */
 @interface IDOTodayViewController : IDOBaseViewController
+
+@property (nonatomic, assign) GankJumpType jumpType;
+@property (nonatomic, strong) IDOHistoryModel *historyModel;
 
 @end

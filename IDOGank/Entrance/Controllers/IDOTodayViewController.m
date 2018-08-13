@@ -34,18 +34,41 @@
     [self initNav];
     [self initUI];
     
-    // 获取最新干货数据
-    [self getTodayData];
+    if (self.jumpType == GankJumpTypeHistory) {
+        // 历史干货
+
+        // 标题
+        self.titleLabel.text = [IDOCommonUtils trimString:self.historyModel.title];
+        [self calculTitleLabelTextHeight];
+        
+        // 发布日期
+        NSString *publishedDate = [IDOCommonUtils trimString:self.historyModel.publishedAt];
+        NSArray *publishedArray = [publishedDate componentsSeparatedByString:@"T"];
+        if (publishedArray.count > 0) {
+            publishedDate = [IDOCommonUtils trimString:publishedArray[0]];
+        }
+        self.navTitleLabel.text = publishedDate;
+
+        NSString *day = [publishedDate stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+        [self getDayData:day];
+
+    } else {
+        // 获取最新干货数据
+        [self getTodayData];
+    }
 }
 
 #pragma mark - init
 - (void)initNav {
     @weakObj(self);
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage ido_imageNamed:@"refresh_icon"] style:UIBarButtonItemStyleDone handler:^(id sender) {
-        @strongObj(self);
-        [self getTodayData];
-    }];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    if (self.jumpType == GankJumpTypeToday) {
+        UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage ido_imageNamed:@"refresh_icon"] style:UIBarButtonItemStyleDone handler:^(id sender) {
+            @strongObj(self);
+            [self getTodayData];
+        }];
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    }
     
     UIView *navTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 44)];
     
@@ -114,7 +137,18 @@
     @weakObj(self);
     self.tableView.ly_emptyView = [IDOEmptyView defaultNoDataEmptyWithBtnClickBlock:^{
         @strongObj(self);
-        [self getTodayData];
+        
+        if (self.jumpType == GankJumpTypeHistory) {
+            NSString *publishedDate = [IDOCommonUtils trimString:self.historyModel.publishedAt];
+            NSArray *publishedArray = [publishedDate componentsSeparatedByString:@"T"];
+            if (publishedArray.count > 0) {
+                publishedDate = [IDOCommonUtils trimString:publishedArray[0]];
+            }
+            NSString *day = [publishedDate stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+            [self getDayData:day];
+        } else {
+            [self getTodayData];
+        }
     }];
 }
 
@@ -133,6 +167,7 @@
         NSArray *gankArray = [self.dataArray ido_safeObjectAtIndex:(section - 1)];
         return gankArray.count;
     }
+    return 0;
 }
 
 static NSString * cellId = @"cellId";
@@ -173,7 +208,9 @@ static NSString * headerViewId = @"headerViewId";
         
         [headerView.girlImageView ido_setImageWithURL:[NSURL ido_URLWithString:self.girlUrlString] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
+        @weakObj(self);
         [headerView.girlImageView bk_whenTapped:^{
+            @strongObj(self);
             XLPhotoBrowser *browser = [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:0 imageCount:1 datasource:self];
             [browser setActionSheetWithTitle:nil delegate:self cancelButtonTitle:nil deleteButtonTitle:nil otherButtonTitles:@"保存图片", nil];
         }];
@@ -295,6 +332,7 @@ static NSString * headerViewId = @"headerViewId";
             
             // 标题
             self.titleLabel.text = [IDOCommonUtils trimString:model.title];
+            [self calculTitleLabelTextHeight];
             
             // 发布日期
             NSString *publishedDate = [IDOCommonUtils trimString:model.publishedAt];
@@ -309,5 +347,66 @@ static NSString * headerViewId = @"headerViewId";
     }];
 }
 
+/**
+ 获取指定日期干货数据
+
+ @param day day 『day』格式『2018/08/09』
+ */
+- (void)getDayData:(NSString *)day {
+    @weakObj(self);
+    IDOBussinessCaller *caller = [IDONetworkServers createDefaultCallerWithWrapObj:self];
+    caller.transactionId = [NSString stringWithFormat:@"day/%@", day];
+    
+    [self.tableView ly_startLoading];
+    [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
+        @strongObj(self);
+        
+        NSDictionary *results = [caller.responseObject objectForKey:@"results"];
+        
+        NSMutableArray *titleMutableArray = [NSMutableArray array];
+        NSMutableArray *dataMutableArray = [NSMutableArray array];
+        
+        for (NSString *title in KContext.titleOrderArray) {
+            if ([results.allKeys containsObject:title]) {
+                [titleMutableArray addObject:title];
+                [dataMutableArray addObject:results[title]];
+            }
+        }
+        
+        if ([results.allKeys containsObject:@"福利"]) {
+            // 福利妹子图
+            NSArray *tempArray = results[@"福利"];
+            self.girlUrlString = [[tempArray ido_safeObjectAtIndex:0] objectForKey:@"url"];
+        }
+        
+        self.titleArray = [titleMutableArray copy];
+        self.dataArray = [IDOTodayModel ido_objectArrayWithKeyValuesArray:dataMutableArray];
+        [self.tableView reloadData];
+        
+        [self.tableView ly_endLoading];
+    } failure:^(IDOBussinessCaller *caller) {
+        @strongObj(self);
+        
+        [self.tableView ly_endLoading];
+    }];
+}
+
+#pragma mark - other method
+/** 计算文字标题高度 */
+- (void)calculTitleLabelTextHeight {
+    CGFloat titleHeight = [self.titleLabel.text boundingRectWithSize:CGSizeMake(KUIScreenWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size.height;
+    titleHeight = (titleHeight > 33) ? (titleHeight + 12) : (33);
+    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(0);
+            make.left.mas_equalTo(self.view.mas_safeAreaLayoutGuideLeft).mas_offset(0);
+            make.right.mas_equalTo(self.view.mas_safeAreaLayoutGuideRight).mas_offset(0);
+            make.height.mas_equalTo(titleHeight);
+        } else {
+            make.top.left.right.mas_equalTo(self.view).mas_offset(0);
+            make.height.mas_equalTo(titleHeight);
+        }
+    }];
+}
 
 @end

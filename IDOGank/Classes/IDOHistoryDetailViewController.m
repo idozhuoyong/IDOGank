@@ -28,7 +28,6 @@
     caller.transactionId = @"today";
     caller.isShowActivityIndicator = YES;
     
-    [self.tableView ly_startLoading];
     [IDONetworkServers sendGETWithCaller:caller progress:nil success:^(IDOBussinessCaller *caller) {
         @strongObj(self)
         
