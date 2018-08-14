@@ -57,7 +57,7 @@
 - (void)setModel:(IDOWelfareModel *)model {
     
     [self.welfareImageView ido_setImageWithURL:[NSURL ido_URLWithString:model.url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    self.titleLabel.text = [IDOCommonUtils trimString:model.who];
+    self.titleLabel.text = [NSString stringWithFormat:@"by: %@", [IDOCommonUtils trimString:model.who]];
 }
 
 @end
