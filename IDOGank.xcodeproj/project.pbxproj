@@ -44,6 +44,9 @@
 		211DD31D211C2F720054C81F /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30A211C2F720054C81F /* XLPhotoBrowser.m */; };
 		211DD31E211C2F720054C81F /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD30E211C2F720054C81F /* XLProgressView.m */; };
 		211DD31F211C2F720054C81F /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DD310211C2F720054C81F /* XLZoomingScrollView.m */; };
+		2135F7742122641900531EDE /* IDOWelfareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135F7732122641900531EDE /* IDOWelfareViewController.m */; };
+		2135F777212267BD00531EDE /* IDOWelfareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135F776212267BD00531EDE /* IDOWelfareCell.m */; };
+		2135F77A21226A6300531EDE /* IDOWelfareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2135F77921226A6300531EDE /* IDOWelfareModel.m */; };
 		213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */; };
 		213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322B2105709F00EE9EB8 /* IDOBussinessCheckCaller.m */; };
 		213C32302105709F00EE9EB8 /* IDORepeatTrsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C322D2105709F00EE9EB8 /* IDORepeatTrsHandler.m */; };
@@ -52,7 +55,6 @@
 		21455F7B211D212400A7B7C3 /* IDODetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F7A211D212300A7B7C3 /* IDODetailViewController.m */; };
 		21455F81211D257A00A7B7C3 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F7E211D257900A7B7C3 /* NJKWebViewProgress.m */; };
 		21455F82211D257A00A7B7C3 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F80211D257900A7B7C3 /* NJKWebViewProgressView.m */; };
-		21455F85211D868E00A7B7C3 /* IDOHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */; };
 		215D7FF9210B07DD00DFC097 /* IDOTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FF8210B07DD00DFC097 /* IDOTodayModel.m */; };
 		215D7FFC210B0A8500DFC097 /* NSArray+IDONSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FFB210B0A8500DFC097 /* NSArray+IDONSArray.m */; };
 		215D8000210B1F1600DFC097 /* IDOTodayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D7FFF210B1F1600DFC097 /* IDOTodayCell.m */; };
@@ -197,6 +199,12 @@
 		211DD30E211C2F720054C81F /* XLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLProgressView.m; sourceTree = "<group>"; };
 		211DD30F211C2F720054C81F /* XLZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLZoomingScrollView.h; sourceTree = "<group>"; };
 		211DD310211C2F720054C81F /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
+		2135F7722122641900531EDE /* IDOWelfareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOWelfareViewController.h; sourceTree = "<group>"; };
+		2135F7732122641900531EDE /* IDOWelfareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOWelfareViewController.m; sourceTree = "<group>"; };
+		2135F775212267BD00531EDE /* IDOWelfareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOWelfareCell.h; sourceTree = "<group>"; };
+		2135F776212267BD00531EDE /* IDOWelfareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOWelfareCell.m; sourceTree = "<group>"; };
+		2135F77821226A6300531EDE /* IDOWelfareModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOWelfareModel.h; sourceTree = "<group>"; };
+		2135F77921226A6300531EDE /* IDOWelfareModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOWelfareModel.m; sourceTree = "<group>"; };
 		213C32282105709F00EE9EB8 /* IDOBussinessActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessActivityIndicator.h; sourceTree = "<group>"; };
 		213C32292105709F00EE9EB8 /* IDOBussinessActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOBussinessActivityIndicator.m; sourceTree = "<group>"; };
 		213C322A2105709F00EE9EB8 /* IDOBussinessCheckCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOBussinessCheckCaller.h; sourceTree = "<group>"; };
@@ -213,8 +221,6 @@
 		21455F7E211D257900A7B7C3 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		21455F7F211D257900A7B7C3 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		21455F80211D257900A7B7C3 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		21455F83211D868E00A7B7C3 /* IDOHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOHistoryDetailViewController.h; sourceTree = "<group>"; };
-		21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOHistoryDetailViewController.m; sourceTree = "<group>"; };
 		215D7FF7210B07DD00DFC097 /* IDOTodayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDOTodayModel.h; sourceTree = "<group>"; };
 		215D7FF8210B07DD00DFC097 /* IDOTodayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDOTodayModel.m; sourceTree = "<group>"; };
 		215D7FFA210B0A8500DFC097 /* NSArray+IDONSArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+IDONSArray.h"; sourceTree = "<group>"; };
@@ -567,6 +573,8 @@
 				21F42790210857AD0039CF43 /* IDOTodayViewController.m */,
 				21F42792210857CA0039CF43 /* IDOHistoryViewController.h */,
 				21F42793210857CA0039CF43 /* IDOHistoryViewController.m */,
+				2135F7722122641900531EDE /* IDOWelfareViewController.h */,
+				2135F7732122641900531EDE /* IDOWelfareViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -578,6 +586,8 @@
 				215D7FF8210B07DD00DFC097 /* IDOTodayModel.m */,
 				21F5D2E2211ACEE800BE0175 /* IDOHistoryModel.h */,
 				21F5D2E3211ACEE800BE0175 /* IDOHistoryModel.m */,
+				2135F77821226A6300531EDE /* IDOWelfareModel.h */,
+				2135F77921226A6300531EDE /* IDOWelfareModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -591,6 +601,8 @@
 				215D7FFF210B1F1600DFC097 /* IDOTodayCell.m */,
 				21EE6AFE210F13A500EA4AA4 /* IDOHistoryCell.h */,
 				21EE6AFF210F13A500EA4AA4 /* IDOHistoryCell.m */,
+				2135F775212267BD00531EDE /* IDOWelfareCell.h */,
+				2135F776212267BD00531EDE /* IDOWelfareCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -818,8 +830,6 @@
 		21F42779210817BC0039CF43 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				21455F83211D868E00A7B7C3 /* IDOHistoryDetailViewController.h */,
-				21455F84211D868E00A7B7C3 /* IDOHistoryDetailViewController.m */,
 				21455F79211D212300A7B7C3 /* IDODetailViewController.h */,
 				21455F7A211D212300A7B7C3 /* IDODetailViewController.m */,
 			);
@@ -1012,6 +1022,7 @@
 				211DD31C211C2F720054C81F /* TAPageControl.m in Sources */,
 				21BF16AB2107279D007D2AA2 /* IDOUIAlertView.m in Sources */,
 				211DD311211C2F720054C81F /* UIImage+XLExtension.m in Sources */,
+				2135F7742122641900531EDE /* IDOWelfareViewController.m in Sources */,
 				213C322E2105709F00EE9EB8 /* IDOBussinessActivityIndicator.m in Sources */,
 				213C322F2105709F00EE9EB8 /* IDOBussinessCheckCaller.m in Sources */,
 				215D8000210B1F1600DFC097 /* IDOTodayCell.m in Sources */,
@@ -1028,10 +1039,10 @@
 				211DD2E8211BE8B40054C81F /* UIView+LYExtension.m in Sources */,
 				2110C5F121017D5100EA7728 /* NSObject+IDONSObject.m in Sources */,
 				21BF165221071531007D2AA2 /* UIImage+IDOUIImage.m in Sources */,
-				21455F85211D868E00A7B7C3 /* IDOHistoryDetailViewController.m in Sources */,
 				21F4278E210829F20039CF43 /* IDOContext.m in Sources */,
 				215D7FFC210B0A8500DFC097 /* NSArray+IDONSArray.m in Sources */,
 				21F4279A210868DF0039CF43 /* IDOBaseViewController.m in Sources */,
+				2135F77A21226A6300531EDE /* IDOWelfareModel.m in Sources */,
 				21F4277C2108193F0039CF43 /* NSObject+IDOExtension.m in Sources */,
 				21455F77211D1EEF00A7B7C3 /* IDOWKWebView.m in Sources */,
 				21BF165C210723AF007D2AA2 /* IDOProjectUtils.m in Sources */,
@@ -1077,6 +1088,7 @@
 				21EE6AFD210EF17E00EA4AA4 /* IDOTodayHeaderView.m in Sources */,
 				21EE6B00210F13A500EA4AA4 /* IDOHistoryCell.m in Sources */,
 				2110C6132101BEEA00EA7728 /* PinyinFormatter.m in Sources */,
+				2135F777212267BD00531EDE /* IDOWelfareCell.m in Sources */,
 				211DD2E5211BE8B40054C81F /* LYEmptyBaseView.m in Sources */,
 				2110C6122101BEEA00EA7728 /* NSString+PinYin4Cocoa.m in Sources */,
 			);

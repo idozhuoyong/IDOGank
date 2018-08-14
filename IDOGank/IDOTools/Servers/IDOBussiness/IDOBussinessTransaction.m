@@ -132,8 +132,8 @@
             [urlString appendString:paramter];
         }
     }
-
-    return urlString;
+    
+    return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 @end

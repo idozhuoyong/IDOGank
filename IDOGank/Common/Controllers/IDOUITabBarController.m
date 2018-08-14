@@ -11,6 +11,7 @@
 
 #import "IDOTodayViewController.h"
 #import "IDOHistoryViewController.h"
+#import "IDOWelfareViewController.h"
 
 #define TabBarVC            @"TabBarVC"
 #define TabBarTitle         @"TabBarTitle"
@@ -80,6 +81,12 @@
                                      TabBarTitle:           @"历史",
                                      TabBarImage:           @"crazy_icon",
                                      TabBarSelectedImage:   @"crazy_icon",
+                                     },
+                                 @{
+                                     TabBarVC:              NSStringFromClass([IDOWelfareViewController class]),
+                                     TabBarTitle:           @"萌妹子",
+                                     TabBarImage:           @"in_love_icon",
+                                     TabBarSelectedImage:   @"in_love_icon",
                                      }
                                  ];
         _tabBarItems = tabBarItems;
